@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+  redmine:
+    container_name: redmine
+    image: redmine:5.1.1
+    ports:
+      - 3001:3000
+    environment:
+      REDMINE_DB_POSTGRES: db
+      REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_USERNAME: root
+      REDMINE_DB_PASSWORD: root
+    depends_on:
+      - db
+  db:
+    container_name: redmine_pg
+    image: postgres:16.1
+    environment:
+      POSTGRES_DB: redmine
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    volumes:
+      - redmine:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+volumes:
+  redmine:
+networks:
+  default:
+    driver: bridge
+
