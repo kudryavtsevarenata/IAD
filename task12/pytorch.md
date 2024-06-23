@@ -1,0 +1,2 @@
+Установить и проверить pyTorch: https://pytorch.org/get-started/locally/
+Выполнить начальные задания из примеров (https://pytorch.org/tutorials/beginner/pytorch_with_examples.html) и приложить свой ноутбук в репозиторий с заданиями
